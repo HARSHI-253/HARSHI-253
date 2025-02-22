@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Food Delivery</h1>
+            <ul>
+                <li><a href="../home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h2>Delicious food delivered to your doorstep</h2>
+        <button class="order-btn" onclick="showMenu()">Order Delicious Food</button>
+    </section>
+
+    <!-- Popular Dishes Table (Initially Hidden) -->
+    <section id="menu" class="menu" style="display: none;">
+        <h2>Our Popular Dishes</h2>
+        <table class="food-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Food Item</th>
+                    <th>Rating</th>
+                    <th>Price</th>
+                    <th>Order</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="burger.jpg" alt="Burger"></td>
+                    <td>Cheese Burger</td>
+                    <td>⭐⭐⭐⭐☆ (4.5)</td>
+                    <td>$5.99</td>
+                    <td><button class="order-btn" onclick="askTransactionDetails('Cheese Burger', 5.99, 'burger.jpg')">Order</button></td>
+                </tr>
+                <tr>
+                    <td><img src="pizza.jpg" alt="Pizza"></td>
+                    <td>Pepperoni Pizza</td>
+                    <td>⭐⭐⭐⭐⭐ (5.0)</td>
+                    <td>$8.99</td>
+                    <td><button class="order-btn" onclick="askTransactionDetails('Pepperoni Pizza', 8.99, 'pizza.jpg')">Order</button></td>
+                </tr>
+                <tr>
+                    <td><img src="pasta.jpg" alt="Pasta"></td>
+                    <td>Creamy Alfredo Pasta</td>
+                    <td>⭐⭐⭐⭐☆ (4.7)</td>
+                    <td>$7.99</td>
+                    <td><button class="order-btn" onclick="askTransactionDetails('Creamy Alfredo Pasta', 7.99, 'pasta.jpg')">Order</button></td>
+                </tr>
+                <tr>
+                    <td><img src="sushi.jpg" alt="Sushi"></td>
+                    <td>Sushi Platter</td>
+                    <td>⭐⭐⭐⭐⭐ (5.0)</td>
+                    <td>$12.99</td>
+                    <td><button class="order-btn" onclick="askTransactionDetails('Sushi Platter', 12.99, 'sushi.jpg')">Order</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Order Popup with Transaction Details -->
+    <div id="popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">✖</span>
+            <p id="popup-message"></p>
+            <label for="customer-name">Name:</label>
+            <input type="text" id="customer-name" required>
+            <label for="customer-address">Address:</label>
+            <input type="text" id="customer-address" required>
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" required>
+                <option value="">Select Payment Method</option>
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="cash">Cash on Delivery</option>
+            </select>
+            <button class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Food Delivery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
